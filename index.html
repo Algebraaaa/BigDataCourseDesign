@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="大数据交互研究报告 — 技术、应用与未来的可视化解读。交互式图表、生命周期展示与行业案例分析。">
+    <meta name="description" content="大数据交互研究报告 - 技术、应用与未来的可视化解读。交互式图表、生命周期展示与行业案例分析。">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <title>大数据全景解析：技术、应用与未来 | 深度交互版</title>
@@ -48,145 +48,7 @@
             }
         }
     </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        :root {
-            --glass-bg: rgba(255, 255, 255, 0.7);
-            --glass-border: rgba(255, 255, 255, 0.5);
-            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
-            --text-primary: #1e293b;
-            --text-secondary: #64748b;
-        }
-
-        html.dark {
-            --glass-bg: rgba(15, 23, 42, 0.6);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-        }
-
-        body {
-            background-color: #f8fafc;
-            color: var(--text-primary);
-            transition: background-color 0.5s ease, color 0.5s ease;
-        }
-        html.dark body { background-color: #020617; }
-
-        /* 高级玻璃拟态 */
-        .glass-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--glass-shadow);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .glass-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(14, 165, 233, 0.5);
-            box-shadow: 0 20px 40px -5px rgba(14, 165, 233, 0.15);
-        }
-        html.dark .glass-card:hover {
-             box-shadow: 0 20px 40px -5px rgba(56, 189, 248, 0.1);
-        }
-
-        /* 粒子画布 */
-        #particle-canvas {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        /* 导航激活态 */
-        .nav-link {
-            transition: color 0.3s ease;
-        }
-        .nav-link.active {
-            color: #0ea5e9;
-            font-weight: 700;
-        }
-        .nav-link.active::after {
-            width: 100%;
-        }
-        .nav-link::after {
-            content: '';
-            display: block;
-            width: 0;
-            height: 2px;
-            background: #0ea5e9;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after { width: 100%; }
-
-        /* 流程图动画 */
-        .process-arrow {
-            stroke-dasharray: 10;
-            animation: dash 1s linear infinite;
-        }
-        @keyframes dash {
-            to { stroke-dashoffset: -20; }
-        }
-
-        .chart-wrapper {
-            position: relative;
-            height: 300px;
-            width: 100%;
-        }
-        @media(min-width: 768px) { .chart-wrapper { height: 360px; } }
-        /* 打字机光标与闪烁效果 */
-        .typing-cursor {
-            display: inline-block;
-            width: 3px;
-            background-color: #0ea5e9;
-            margin-left: 6px;
-            vertical-align: text-bottom;
-            height: 1em;
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-        .animate-cursor-blink {
-            animation: blink 1s step-end infinite;
-        }
-        /* Chart tooltip inside chart card */
-        .chart-tooltip {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: rgba(2,6,23,0.8);
-            color: #fff;
-            padding: 0.5rem 0.75rem;
-            border-radius: 0.5rem;
-            font-size: 0.85rem;
-            box-shadow: 0 6px 18px rgba(2,6,23,0.35);
-            z-index: 10;
-            pointer-events: none;
-            transition: transform 160ms ease, opacity 160ms ease;
-            transform-origin: top right;
-        }
-        .chart-tooltip.hidden { opacity: 0; transform: scale(0.95); }
-        .chart-tooltip.visible { opacity: 1; transform: scale(1); }
-        /* Prefer reduced motion for users who request it */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation: none !important;
-                transition: none !important;
-            }
-            /* 但保留平滑滚动和 scroll-behavior（它们不是 animation，而是用户体验增强）*/
-            html {
-                scroll-behavior: smooth;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="antialiased overflow-x-hidden">
 
@@ -209,9 +71,9 @@
             <div class="hidden md:flex gap-8 text-sm font-medium">
                 <a href="#hero" class="nav-link transition-colors duration-200 ease-out hover:text-brand-500">首页</a>
                 <a href="#characteristics" class="nav-link transition-colors duration-200 ease-out hover:text-brand-500">4V特征</a>
-                <a href="#lifecycle" class="nav-link transition-colors duration-200 ease-out hover:text-brand-500">数据生命周期</a> <!-- 新增 -->
+                <a href="#lifecycle" class="nav-link transition-colors duration-200 ease-out hover:text-brand-500">数据生命周期</a>
                 <a href="#evolution" class="nav-link transition-colors duration-200 ease-out hover:text-brand-500">发展史</a>
-                <a href="#industries" class="nav-link transition-colors duration-200 ease-out hover:text-brand-500">行业应用</a> <!-- 新增 -->
+                <a href="#industries" class="nav-link transition-colors duration-200 ease-out hover:text-brand-500">行业应用</a>
                 <a href="#impact" class="nav-link transition-colors duration-200 ease-out hover:text-brand-500">影响与挑战</a>
             </div>
 
@@ -269,7 +131,7 @@
             <p class="text-lg md:text-xl text-[var(--text-secondary)] mb-10 max-w-3xl mx-auto leading-relaxed glass-card p-8 rounded-3xl">
                 信息科技的飞速进步为大数据时代提供了坚实的技术支撑，而数据产生方式的根本性变革则促成了这一时代的全面来临。
                 <br><br>
-                本交互报告将带您深入剖析大数据的 <span class="text-brand-500 font-bold">运作机理</span>、<span class="text-brand-500 font-bold">行业落地</span> 及 <span class="text-brand-500 font-bold">社会伦理</span>，为您呈现一个多维度的数字世界。
+                本交互报告将带您深入剖析大数据的 <span class="text-brand-500 font-bold">运作机理</span>、<span class="text-brand-500 font-bold">行业落地</span> 与 <span class="text-brand-500 font-bold">社会伦理</span>，为您呈现一个多维度的数字世界。
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <button onclick="scrollToId('lifecycle')" class="px-8 py-3.5 bg-brand-600 hover:bg-brand-700 text-white rounded-full font-bold shadow-lg shadow-brand-500/30 transition-all duration-300 ease-out transform hover:scale-105 flex items-center justify-center gap-2">
@@ -289,7 +151,7 @@
         <section id="characteristics" class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">大数据的核心特征 (The 4 Vs)</h2>
-                <p class="text-[var(--text-secondary)]">不只是“大”，更是多维度的质变。对比传统数据，感受维度的扩张。</p>
+                <p class="text-[var(--text-secondary)]">不只是"大"，更是多维度的质变。对比传统数据，感受维度的扩张。</p>
             </div>
             
             <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -313,7 +175,7 @@
                     <div class="glass-card lifecycle-card p-6 rounded-2xl border-l-4 border-purple-500 cursor-pointer group hover:bg-purple-50/50 dark:hover:bg-purple-900/20" data-key="val" onmouseenter="highlightChart('val')" onmouseleave="highlightChart()" onclick="onLifecycleCardClick('val', event)" role="button" tabindex="0" onkeydown="onLifecycleCardKey(event, 'val')">
                         <div class="text-3xl mb-2">💎</div>
                         <h3 class="font-bold text-lg mb-2">Value (低密)</h3>
-                        <p class="text-sm text-[var(--text-secondary)]">价值密度极低。需要在海量“沙子”（无关数据）中淘出“金子”（核心洞察）。</p>
+                        <p class="text-sm text-[var(--text-secondary)]">价值密度极低。需要在海量"沙子"（无关数据）中淘出"金子"（核心洞察）。</p>
                     </div>
                 </div>
 
@@ -428,7 +290,7 @@
                     
                     <h3 id="hist-title" class="text-2xl font-bold mb-4 text-brand-600 dark:text-brand-400">基础设施构建期</h3>
                     <p id="hist-desc" class="text-[var(--text-secondary)] text-lg leading-relaxed mb-6">
-                        这一阶段标志着大数据技术的诞生。Google发表了划时代的“三驾马车”论文（GFS, MapReduce, BigTable），解决了海量数据的存储与计算难题。随后，Doug Cutting基于此开发了开源的Hadoop，使得普通企业也能利用廉价PC集群处理PB级数据。
+                        这一阶段标志着大数据技术的诞生。Google发表了划时代的"三驾马车"论文（GFS, MapReduce, BigTable），解决了海量数据的存储与计算难题。随后，Doug Cutting基于此开发了开源的Hadoop，使得普通企业也能利用廉价PC集群处理PB级数据。
                     </p>
                     <div class="flex gap-3 flex-wrap" id="hist-tags">
                         <span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-700 text-xs font-mono">Hadoop</span>
@@ -454,9 +316,9 @@
                     <h3 class="font-bold text-lg mb-2">金融风控</h3>
                     <p class="text-sm text-[var(--text-secondary)] mb-4">利用用户交易行为、社交关系图谱进行实时欺诈检测和信用评分。</p>
                     <ul class="text-xs text-[var(--text-secondary)] space-y-1 border-t border-slate-200 dark:border-slate-700 pt-3">
-                        <li class="flex items-center">✅ 申请反欺诈 (Anti-fraud)</li>
-                        <li class="flex items-center">✅ 信用评分模型 (Credit Scoring)</li>
-                        <li class="flex items-center">✅ 高频交易 (HFT)</li>
+                        <li class="flex items-center">✓ 申请反欺诈 (Anti-fraud)</li>
+                        <li class="flex items-center">✓ 信用评分模型 (Credit Scoring)</li>
+                        <li class="flex items-center">✓ 高频交易 (HFT)</li>
                     </ul>
                 </div>
 
@@ -465,11 +327,11 @@
                     <div class="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div class="w-12 h-12 rounded-lg bg-orange-100 text-orange-600 flex items-center justify-center text-2xl mb-4">🛒</div>
                     <h3 class="font-bold text-lg mb-2">新零售</h3>
-                    <p class="text-sm text-[var(--text-secondary)] mb-4">通过“人、货、场”的数据重构，实现精准营销和供应链优化。</p>
+                    <p class="text-sm text-[var(--text-secondary)] mb-4">通过"人、货、场"的数据重构，实现精准营销和供应链优化。</p>
                     <ul class="text-xs text-[var(--text-secondary)] space-y-1 border-t border-slate-200 dark:border-slate-700 pt-3">
-                        <li class="flex items-center">✅ 用户画像 (User Profiling)</li>
-                        <li class="flex items-center">✅ 麦当劳与华莱士 (Association Rule)</li>
-                        <li class="flex items-center">✅ 智能补货 (Smart Supply Chain)</li>
+                        <li class="flex items-center">✓ 用户画像 (User Profiling)</li>
+                        <li class="flex items-center">✓ 麦当劳与华莱士 (Association Rule)</li>
+                        <li class="flex items-center">✓ 智能补货 (Smart Supply Chain)</li>
                     </ul>
                 </div>
 
@@ -480,9 +342,9 @@
                     <h3 class="font-bold text-lg mb-2">智慧医疗</h3>
                     <p class="text-sm text-[var(--text-secondary)] mb-4">基于电子病历和基因数据，辅助医生进行诊断和个性化治疗方案制定。</p>
                     <ul class="text-xs text-[var(--text-secondary)] space-y-1 border-t border-slate-200 dark:border-slate-700 pt-3">
-                        <li class="flex items-center">✅ 辅助诊断 (CDSS)</li>
-                        <li class="flex items-center">✅ 药物研发 (Drug Discovery)</li>
-                        <li class="flex items-center">✅ 流行病预测 (Epidemic Forecast)</li>
+                        <li class="flex items-center">✓ 辅助诊断 (CDSS)</li>
+                        <li class="flex items-center">✓ 药物研发 (Drug Discovery)</li>
+                        <li class="flex items-center">✓ 流行病预测 (Epidemic Forecast)</li>
                     </ul>
                 </div>
 
@@ -491,11 +353,11 @@
                     <div class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div class="w-12 h-12 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center text-2xl mb-4">🎬</div>
                     <h3 class="font-bold text-lg mb-2">流媒体娱乐</h3>
-                    <p class="text-sm text-[var(--text-secondary)] mb-4">Netflix和抖音依靠强大的推荐算法，让用户“停不下来”。</p>
+                    <p class="text-sm text-[var(--text-secondary)] mb-4">Netflix和抖音依靠强大的推荐算法，让用户"停不下来"。</p>
                     <ul class="text-xs text-[var(--text-secondary)] space-y-1 border-t border-slate-200 dark:border-slate-700 pt-3">
-                        <li class="flex items-center">✅ 个性化推荐 (RecSys)</li>
-                        <li class="flex items-center">✅ 内容生产指导 (AIGC)</li>
-                        <li class="flex items-center">✅ 广告精准投放 (AdTech)</li>
+                        <li class="flex items-center">✓ 个性化推荐 (RecSys)</li>
+                        <li class="flex items-center">✓ 内容生产指导 (AIGC)</li>
+                        <li class="flex items-center">✓ 广告精准投放 (AdTech)</li>
                     </ul>
                 </div>
             </div>
@@ -539,7 +401,7 @@
                     <div class="md:w-1/2">
                         <h2 class="text-3xl font-bold mb-6">双刃剑效应：效率 vs 隐私</h2>
                         <p class="text-[var(--text-secondary)] mb-6 leading-relaxed">
-                            大数据赋予了我们上帝般的视角（God's Eye View），提高了社会效率，但同时也让我们陷入了“全景敞视监狱”。
+                            大数据赋予了我们上帝般的视角（God's Eye View），提高了社会效率，但同时也让我们陷入了"全景敞视监狱"。
                         </p>
                         
                         <div class="space-y-4">
@@ -578,7 +440,7 @@
                 <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-brand-400 to-brand-300 bg-clip-text text-transparent">面向未来的能力图谱</h2>
                 <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">大数据与AI融合时代的核心竞争力——从工具掌握到思维突破</p>
                         <p class="text-[var(--text-secondary)] mb-8 leading-relaxed">
-                            在大数据与AI融合的时代，单纯的工具使用能力已不再稀缺。未来的数据人才需要具备<span class="text-brand-400">“T型”能力结构</span>：深耕某一业务领域，同时具备广博的数据思维和伦理意识。
+                            在大数据与AI融合的时代，单纯的工具使用能力已不再稀缺。未来的数据人才需要具备<span class="text-brand-400">"T型"能力结构</span>：深耕某一业务领域，同时具备广博的数据思维和伦理意识。
                         </p>
                         <div class="space-y-4">
                             <div class="flex items-center gap-4">
@@ -614,12 +476,12 @@
                             <p class="text-sm text-[var(--text-secondary)] mb-4 leading-relaxed">不仅会看报表，更能从数据波动中敏锐捕捉业务问题，提前预警风险。</p>
                             <ul class="text-xs text-[var(--text-secondary)] space-y-2">
                                 <li>✓ 快速识别数据异常</li>
-                                <li>✓ 挖掘隐藏的业务机遇</li>
+                                <li>✓ 挖掘隐藏的业务机会</li>
                                 <li>✓ 掌握行业 KPI 体系</li>
                             </ul>
                         </div>
                         <div class="glass-card p-6 rounded-2xl border-l-4 border-emerald-500 hover:shadow-lg hover:shadow-emerald-500/20 transition-all duration-300">
-                            <div class="text-4xl mb-3">⚡</div>
+                            <div class="text-4xl mb-3">🧐</div>
                             <h4 class="font-bold text-lg mb-2">批判性思维</h4>
                             <p class="text-sm text-[var(--text-secondary)] mb-4 leading-relaxed">敢于质疑数据来源的偏差，不盲信算法结果，建立科学的验证机制。</p>
                             <ul class="text-xs text-[var(--text-secondary)] space-y-2">
@@ -661,7 +523,7 @@
                     <div class="chart-wrapper relative z-10">
                         <canvas id="skillsChart" role="img" aria-label="未来技能需求横向柱状图"></canvas>
                     </div>
-                    <p class="text-xs text-slate-400 mt-6 relative z-10">数据来源：行业报告综合分析 | 更新时间：2025年12月</p>
+                    <p class="text-xs text-slate-400 mt-6 relative z-10">数据来源：行业报告综合分析 | 更新时间：2025年2月</p>
                 </div>
 
                 <!-- 右：职业成长路径 -->
@@ -674,9 +536,9 @@
                                 <h4 class="font-bold text-lg">初级：数据分析师</h4>
                             </div>
                             <ul class="text-sm text-[var(--text-secondary)] space-y-2 ml-2">
-                                <li>• SQL & Python 基础能力</li>
-                                <li>• BI 工具操作（Tableau/Metabase）</li>
-                                <li>• 数据清洗与可视化</li>
+                                <li>✓ SQL & Python 基础能力</li>
+                                <li>✓ BI 工具操作（Tableau/Metabase）</li>
+                                <li>✓ 数据清洗与可视化</li>
                             </ul>
                         </div>
 
@@ -687,10 +549,10 @@
                                 <h4 class="font-bold text-lg">中级：高级分析师 / 数据工程师</h4>
                             </div>
                             <ul class="text-sm text-[var(--text-secondary)] space-y-2 ml-2">
-                                <li>• Spark / 分布式计算框架精通</li>
-                                <li>• 机器学习模型应用与调优</li>
-                                <li>• 数据架构设计与优化</li>
-                                <li>• 跨部门项目主导</li>
+                                <li>✓ Spark / 分布式计算框架精通</li>
+                                <li>✓ 机器学习模型应用与调优</li>
+                                <li>✓ 数据架构设计与优化</li>
+                                <li>✓ 跨部门项目主导</li>
                             </ul>
                         </div>
 
@@ -701,10 +563,10 @@
                                 <h4 class="font-bold text-lg">高级：科学家 / 架构师</h4>
                             </div>
                             <ul class="text-sm text-[var(--text-secondary)] space-y-2 ml-2">
-                                <li>• 创新算法与模型研究</li>
-                                <li>• 公司级数据战略规划</li>
-                                <li>• 建立数据文化与治理体系</li>
-                                <li>• 行业影响力与思想领导力</li>
+                                <li>✓ 创新算法与模型研发</li>
+                                <li>✓ 公司级数据战略规划</li>
+                                <li>✓ 建立数据文化与治理体系</li>
+                                <li>✓ 行业影响力与思想领导力</li>
                             </ul>
                         </div>
                     </div>
@@ -752,766 +614,6 @@
     </footer>
 
     <!-- Logic Script -->
-    <script>
-        // === 1. Particle System (Neural Network Style) ===
-        const initParticles = () => {
-            const canvas = document.getElementById('particle-canvas');
-            const ctx = canvas.getContext('2d');
-            let width, height, particles;
-
-            const resize = () => {
-                width = canvas.width = window.innerWidth;
-                height = canvas.height = window.innerHeight;
-            };
-            
-            class Particle {
-                constructor() {
-                    this.x = Math.random() * width;
-                    this.y = Math.random() * height;
-                    this.vx = (Math.random() - 0.5) * 0.5;
-                    this.vy = (Math.random() - 0.5) * 0.5;
-                    this.size = Math.random() * 2 + 1;
-                }
-                update() {
-                    this.x += this.vx; this.y += this.vy;
-                    if(this.x < 0 || this.x > width) this.vx *= -1;
-                    if(this.y < 0 || this.y > height) this.vy *= -1;
-                }
-                draw() {
-                    const isDark = document.documentElement.classList.contains('dark');
-                    ctx.fillStyle = isDark ? 'rgba(56, 189, 248, 0.5)' : 'rgba(14, 165, 233, 0.5)';
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
-                    ctx.fill();
-                }
-            }
-
-            const init = () => {
-                particles = [];
-                const count = window.innerWidth < 768 ? 40 : 80;
-                for(let i=0; i<count; i++) particles.push(new Particle());
-            };
-
-            const animate = () => {
-                ctx.clearRect(0, 0, width, height);
-                const isDark = document.documentElement.classList.contains('dark');
-                
-                particles.forEach((p, i) => {
-                    p.update();
-                    p.draw();
-                    // Connect
-                    for(let j=i+1; j<particles.length; j++) {
-                        const p2 = particles[j];
-                        const dx = p.x - p2.x;
-                        const dy = p.y - p2.y;
-                        const dist = Math.sqrt(dx*dx + dy*dy);
-                        if(dist < 120) {
-                            ctx.beginPath();
-                            ctx.strokeStyle = isDark 
-                                ? `rgba(56, 189, 248, ${0.15 * (1 - dist/120)})` 
-                                : `rgba(14, 165, 233, ${0.15 * (1 - dist/120)})`;
-                            ctx.lineWidth = 1;
-                            ctx.moveTo(p.x, p.y);
-                            ctx.lineTo(p2.x, p2.y);
-                            ctx.stroke();
-                        }
-                    }
-                });
-                requestAnimationFrame(animate);
-            };
-
-            window.addEventListener('resize', () => { resize(); init(); });
-            resize(); init(); animate();
-        };
-
-        // === 2. Charts Config ===
-        let charts = {};
-        const getColors = () => {
-            const isDark = document.documentElement.classList.contains('dark');
-            return {
-                text: isDark ? '#94a3b8' : '#64748b',
-                grid: isDark ? '#334155' : '#e2e8f0',
-                brand: '#0ea5e9'
-            };
-        };
-
-        const initCharts = () => {
-            const colors = getColors();
-            Chart.defaults.font.family = "'Noto Sans SC', sans-serif";
-            Chart.defaults.color = colors.text;
-
-            // 1. Radar Chart (Characteristics)
-            const ctx1 = document.getElementById('characteristicsChart').getContext('2d');
-            charts.radar = new Chart(ctx1, {
-                type: 'radar',
-                data: {
-                    labels: ['Volume (量)', 'Variety (多)', 'Velocity (快)', 'Value (值)', 'Veracity (真)'],
-                    datasets: [{
-                        label: '大数据特征',
-                        data: [95, 90, 95, 20, 60],
-                        backgroundColor: 'rgba(14, 165, 233, 0.2)',
-                        borderColor: '#0ea5e9',
-                        pointBackgroundColor: '#0ea5e9',
-                        borderWidth: 2
-                    }, {
-                        label: '传统数据',
-                        data: [30, 20, 20, 80, 95],
-                        backgroundColor: 'rgba(148, 163, 184, 0.2)',
-                        borderColor: '#94a3b8',
-                        pointBackgroundColor: '#94a3b8',
-                        borderWidth: 2,
-                        borderDash: [5, 5]
-                    }]
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    scales: {
-                        r: {
-                            grid: { color: colors.grid },
-                            angleLines: { color: colors.grid },
-                            pointLabels: { color: colors.text, font: {size: 12} },
-                            suggestedMin: 0,
-                            suggestedMax: 100
-                        }
-                    },
-                    plugins: { legend: { position: 'bottom' } }
-                }
-            });
-
-            // 2. Impact Bar Chart
-            const ctx2 = document.getElementById('impactChart').getContext('2d');
-            charts.impact = new Chart(ctx2, {
-                type: 'bar',
-                data: {
-                    labels: ['决策效率', '资源优化', '隐私风险', '信息茧房'],
-                    datasets: [{
-                        label: '影响指数',
-                        data: [85, 80, 20, 15],
-                        backgroundColor: [
-                            'rgba(16, 185, 129, 0.8)', // Green
-                            'rgba(16, 185, 129, 0.8)',
-                            'rgba(203, 213, 225, 0.5)', // Gray
-                            'rgba(203, 213, 225, 0.5)'
-                        ],
-                        borderRadius: 6
-                    }]
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: { display: false, max: 100 },
-                        x: { grid: { display: false } }
-                    },
-                    plugins: { legend: { display: false } }
-                }
-            });
-
-            // 3. Skills Chart (Horizontal Bar)
-            const ctx3 = document.getElementById('skillsChart').getContext('2d');
-            charts.skills = new Chart(ctx3, {
-                type: 'bar',
-                data: {
-                    labels: ['数据分析(Python/SQL)', '机器学习原理', '业务理解能力', '数据可视化', '数据伦理'],
-                    datasets: [{
-                        data: [90, 75, 95, 80, 70],
-                        backgroundColor: (ctx) => {
-                            const val = ctx.raw;
-                            const alpha = val > 90 ? 0.9 : 0.6;
-                            return `rgba(56, 189, 248, ${alpha})`;
-                        },
-                        borderRadius: 4,
-                        barThickness: 20
-                    }]
-                },
-                options: {
-                    indexAxis: 'y',
-                    maintainAspectRatio: false,
-                    scales: {
-                        x: { display: false, max: 100 },
-                        y: { 
-                            grid: { display: false },
-                            ticks: { color: '#e2e8f0' }
-                        }
-                    },
-                    plugins: { legend: { display: false } }
-                }
-            });
-        };
-
-        // === 3. Interactive Data Logic ===
-        
-        // --- Lifecycle Data ---
-        const lifecycleData = [
-            {
-                title: "1. 数据采集 (Acquisition)",
-                desc: "大数据的源头。除了传统的数据库记录，主要来源变为传感器信号（IoT）、网络日志、用户点击流、摄像头视频等。数据呈现出多源异构的特点。",
-                challenge: "高并发写入、协议多样性",
-                tech: "Flume, Kafka, Logstash",
-                example: "智能手环每秒上传心率数据；电商APP记录每一次滑动。"
-            },
-            {
-                title: "2. 存储管理 (Storage)",
-                desc: "传统单机数据库无法容纳PB级数据。分布式文件系统（HDFS）和NoSQL数据库应运而生，采用“分而治之”的思想，将数据切片存储在成千上万台廉价服务器上。",
-                challenge: "扩展性、容错性、一致性(CAP)",
-                tech: "HDFS, HBase, Cassandra, S3",
-                example: "Facebook存储几十亿用户的照片和社交关系图谱。"
-            },
-            {
-                title: "3. 计算处理 (Computing)",
-                desc: "分为离线计算（T+1，跑批处理）和实时计算（秒级，流处理）。计算引擎负责调度资源，并行处理海量数据。",
-                challenge: "计算资源调度、低延迟",
-                tech: "MapReduce, Spark, Flink",
-                example: "每晚计算全平台昨日销售额（离线）；实时监控双11交易大屏（实时）。"
-            },
-            {
-                title: "4. 分析挖掘 (Analysis)",
-                desc: "数据的终点是价值。通过统计分析、机器学习算法，从数据中发现规律、预测未来，并以可视化报表呈现。",
-                challenge: "算法准确度、可解释性",
-                tech: "Python, TensorFlow, Tableau",
-                example: "Netflix猜你喜欢什么电影；银行预测这笔交易是否为盗刷。"
-            }
-        ];
-
-        function setLifecycleStep(index) {
-            // Update Buttons
-            document.querySelectorAll('.lifecycle-step').forEach((btn, i) => {
-                if(i === index) {
-                    btn.classList.add('border-brand-500', 'bg-brand-50', 'dark:bg-brand-900/30', 'scale-105', 'shadow-lg');
-                    btn.classList.remove('border-transparent', 'hover:bg-black/5', 'dark:hover:bg-white/5');
-                    btn.setAttribute('aria-pressed', 'true');
-                } else {
-                    btn.classList.remove('border-brand-500', 'bg-brand-50', 'dark:bg-brand-900/30', 'scale-105', 'shadow-lg');
-                    btn.classList.add('border-transparent', 'hover:bg-black/5', 'dark:hover:bg-white/5');
-                    btn.setAttribute('aria-pressed', 'false');
-                }
-            });
-
-            // Update Content with smooth fade
-            const d = lifecycleData[index];
-            const container = document.getElementById('lifecycle-display');
-            
-            // Apply transition style if not already there
-            if (!container.style.transition) {
-                container.style.transition = 'opacity 300ms ease-out, transform 300ms ease-out';
-            }
-            
-            // Fade out and slide up
-            container.style.opacity = 0;
-            container.style.transform = 'translateY(10px)';
-            
-            setTimeout(() => {
-                document.getElementById('ls-title').innerText = d.title;
-                document.getElementById('ls-desc').innerText = d.desc;
-                document.getElementById('ls-challenge').innerText = d.challenge;
-                document.getElementById('ls-tech').innerText = d.tech;
-                document.getElementById('ls-example').innerText = d.example;
-                
-                // Fade in and slide down
-                container.style.opacity = 1;
-                container.style.transform = 'translateY(0)';
-            }, 150);
-        }
-
-        // --- Timeline Data ---
-        const historyData = [
-            {
-                title: "Wave 1: 基础设施构建期 (2003-2010)",
-                desc: "这一阶段标志着大数据技术的诞生。Google发表了划时代的“三驾马车”论文（GFS, MapReduce, BigTable），解决了海量数据的存储与计算难题。Doug Cutting基于此开发了开源的Hadoop，使得普通企业也能利用廉价PC集群处理PB级数据。",
-                tags: ["Hadoop", "MapReduce", "Data Warehouse"]
-            },
-            {
-                title: "Wave 2: 移动与实时化 (2011-2016)",
-                desc: "智能手机普及，数据从PC端向移动端转移，数据量呈指数级爆发。Spark的出现解决了Hadoop计算慢的问题，将计算移入内存。同时，流处理技术（Storm, Flink）兴起，满足了对实时性的渴求。",
-                tags: ["Spark", "NoSQL", "Mobile Internet"]
-            },
-            {
-                title: "Wave 3: AI与云原生 (2017-Present)",
-                desc: "大数据与人工智能深度融合（Data + AI）。“数据湖”概念兴起，不仅存储数据，更直接支撑深度学习训练。云原生架构（Snowflake, Databricks）让存算分离，企业可以按需租用算力，数据成为核心资产。",
-                tags: ["AI/ML", "Cloud Native", "Data Lakehouse"]
-            }
-        ];
-
-        function updateTimeline(index) {
-            document.querySelectorAll('.timeline-nav').forEach((btn, i) => {
-                if(i === index) {
-                    btn.classList.add('active', 'border-brand-500', 'bg-white/60', 'dark:bg-slate-800/60', 'shadow-md');
-                    btn.classList.remove('border-transparent', 'hover:bg-white/30', 'opacity-70');
-                } else {
-                    btn.classList.remove('active', 'border-brand-500', 'bg-white/60', 'dark:bg-slate-800/60', 'shadow-md');
-                    btn.classList.add('border-transparent', 'hover:bg-white/30', 'opacity-70');
-                }
-            });
-
-            const d = historyData[index];
-            document.getElementById('hist-title').innerText = d.title;
-            document.getElementById('hist-desc').innerText = d.desc;
-            document.getElementById('hist-tags').innerHTML = d.tags.map(t => `<span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-700 text-xs font-mono">${t}</span>`).join('');
-        }
-
-        // --- Impact Toggle ---
-        function toggleImpact(type) {
-            const btnPos = document.getElementById('btn-pos');
-            const btnNeg = document.getElementById('btn-neg');
-            const textBox = document.getElementById('impact-text');
-            const isDark = document.documentElement.classList.contains('dark');
-
-            if(type === 'pos') {
-                btnPos.className = `px-4 py-2 rounded-md text-sm font-bold shadow-sm transition-all bg-white dark:bg-slate-700 text-emerald-600 dark:text-emerald-400`;
-                btnNeg.className = "px-4 py-2 rounded-md text-sm font-bold text-slate-500 hover:text-rose-500 transition-all";
-                
-                textBox.innerHTML = `
-                    <h4 class="font-bold text-lg mb-2 text-emerald-600 dark:text-emerald-400">决策科学化与效率提升</h4>
-                    <p class="text-sm text-[var(--text-secondary)]">以前的决策依赖经验和直觉，现在依赖数据。例如，UPS通过大数据优化送货路线，每年节省数千万加仑燃油；精准医疗通过基因数据分析，为癌症患者提供定制化治疗方案，显著提高生存率。</p>
-                `;
-                
-                charts.impact.data.datasets[0].data = [85, 80, 20, 15];
-                charts.impact.data.datasets[0].backgroundColor = ['rgba(16, 185, 129, 0.8)', 'rgba(16, 185, 129, 0.8)', 'rgba(203, 213, 225, 0.5)', 'rgba(203, 213, 225, 0.5)'];
-            } else {
-                btnNeg.className = `px-4 py-2 rounded-md text-sm font-bold shadow-sm transition-all bg-white dark:bg-slate-700 text-rose-600 dark:text-rose-400`;
-                btnPos.className = "px-4 py-2 rounded-md text-sm font-bold text-slate-500 hover:text-emerald-500 transition-all";
-
-                textBox.innerHTML = `
-                    <h4 class="font-bold text-lg mb-2 text-rose-600 dark:text-rose-400">隐私泄露与信息茧房</h4>
-                    <p class="text-sm text-[var(--text-secondary)]">“大数据杀熟”让老用户支付更高价格；推荐算法不断推送符合你喜好的内容，制造“回声室效应”，窄化用户视野。更严重的是，当我们的生物特征、行踪被数字化存储，一旦泄露，我们将毫无隐私可言。</p>
-                `;
-
-                charts.impact.data.datasets[0].data = [30, 40, 90, 85];
-                charts.impact.data.datasets[0].backgroundColor = ['rgba(203, 213, 225, 0.5)', 'rgba(203, 213, 225, 0.5)', 'rgba(244, 63, 94, 0.8)', 'rgba(244, 63, 94, 0.8)'];
-            }
-            charts.impact.update();
-        }
-
-        // === 4. Chart Interactivity ===
-        function highlightChart(type) {
-            if (!charts || !charts.radar) return;
-
-            // Map incoming type to radar index
-            const map = { vol: 0, var: 1, vel: 2, val: 3 };
-            const idx = type && map.hasOwnProperty(type) ? map[type] : -1;
-
-            const chart = charts.radar;
-            const ds = chart.data.datasets[0];
-
-            // Prepare default and highlight styles
-            const defaultPointColor = '#0ea5e9';
-            const mutedPointColor = '#94a3b8';
-            const highlightRadius = 8;
-            const normalRadius = 4;
-
-            if (idx === -1) {
-                // reset to defaults
-                ds.pointBackgroundColor = defaultPointColor;
-                ds.pointRadius = normalRadius;
-                // 恢复区域与边框到正常状态
-                ds.backgroundColor = 'rgba(14, 165, 233, 0.2)';
-                ds.borderColor = '#0ea5e9';
-                ds.borderWidth = 2;
-            } else {
-                // 高亮点样式（点颜色、半径）
-                ds.pointBackgroundColor = ds.data.map((_, i) => i === idx ? defaultPointColor : mutedPointColor);
-                ds.pointRadius = ds.data.map((_, i) => i === idx ? highlightRadius : normalRadius);
-
-                // 增强整体视觉：加粗边框并增强填充透明度
-                ds.backgroundColor = 'rgba(14, 165, 233, 0.32)';
-                ds.borderColor = '#0ea5e9';
-                ds.borderWidth = 4;
-            }
-
-            chart.update('none');
-        }
-
-        // Tooltip text for each dimension
-        const characteristicTips = {
-            vol: 'Volume (海量)：数据量巨大，存储与传输是核心挑战。',
-            var: 'Variety (多样)：非结构化数据占主流，预处理难度大。',
-            vel: 'Velocity (高速)：实时性要求高，需要低延迟计算。',
-            val: 'Value (低密)：有效信息稀少，需强力筛选与建模。'
-        };
-
-        let lifecycleActive = null; // track touch/click active key
-
-        function showChartTooltip(text) {
-            const t = document.getElementById('chart-tooltip');
-            if (!t) return;
-            if (!text) {
-                t.classList.remove('visible');
-                t.classList.add('hidden');
-                t.textContent = '';
-                return;
-            }
-            t.textContent = text;
-            t.classList.remove('hidden');
-            t.classList.add('visible');
-        }
-
-        function onLifecycleCardClick(key, e) {
-            // prevent page-level click handler from immediately resetting
-            e.stopPropagation();
-            // Toggle on touch/click
-            if (lifecycleActive === key) {
-                lifecycleActive = null;
-                highlightChart();
-                showChartTooltip();
-            } else {
-                lifecycleActive = key;
-                highlightChart(key);
-                showChartTooltip(characteristicTips[key]);
-                // 将 tooltip 放置在卡片附近
-                try {
-                    const card = e.currentTarget || e.target.closest('.lifecycle-card');
-                    if (card) {
-                        const cardRect = card.getBoundingClientRect();
-                        positionChartTooltipAt(cardRect.left + cardRect.width/2, cardRect.top + 10);
-                    }
-                } catch (err) {
-                    // ignore
-                }
-            }
-        }
-
-        function onLifecycleCardKey(e, key) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                onLifecycleCardClick(key, e);
-            }
-        }
-
-        // 将 tooltip 定位到相对于图表容器的位置（clientX/Y 来自 pointer 事件）
-        function positionChartTooltipAt(clientX, clientY) {
-            const t = document.getElementById('chart-tooltip');
-            const wrapper = document.querySelector('#characteristics .chart-wrapper') || document.querySelector('.chart-wrapper');
-            if (!t || !wrapper) return;
-
-            const wrapperRect = wrapper.getBoundingClientRect();
-            const margin = 8;
-
-            // 先设置文本以便拿到尺寸
-            t.style.left = ''; t.style.top = '';
-            const tipRect = t.getBoundingClientRect();
-            
-            // 计算相对于 wrapper 的位置（优先靠近鼠标，必要时限制在 wrapper 内）
-            let left = clientX - wrapperRect.left + 10;
-            let top = clientY - wrapperRect.top - tipRect.height - 10;
-
-            // 防止溢出右/左/上/下
-            if (left + tipRect.width + margin > wrapperRect.width) left = wrapperRect.width - tipRect.width - margin;
-            if (left < margin) left = margin;
-            if (top < margin) top = clientY - wrapperRect.top + 10; // 如果上方不够，放到鼠标下方
-            if (top + tipRect.height + margin > wrapperRect.height) top = wrapperRect.height - tipRect.height - margin;
-            
-            // 应用位置（以 px）
-            t.style.left = `${left}px`;
-            t.style.top = `${top}px`;
-        }
-
-        // 注册 pointer 事件以实现鼠标跟随 tooltip 定位（同时兼容触控/桌面）
-        function attachLifecycleCardHandlers() {
-            const cards = document.querySelectorAll('.lifecycle-card');
-            const tooltip = document.getElementById('chart-tooltip');
-            if (!cards || !tooltip) return;
-
-            cards.forEach(card => {
-                const key = card.dataset.key;
-                
-                // pointerenter -> 高亮并显示 tooltip
-                card.addEventListener('pointerenter', (ev) => {
-                    // 如果是触控（pointerType === 'touch'），不要因 pointerenter 触发（以点击为准）
-                    if (ev.pointerType === 'touch') return;
-                    highlightChart(key);
-                    showChartTooltip(characteristicTips[key]);
-                    positionChartTooltipAt(ev.clientX, ev.clientY);
-                }, { passive: true });
-
-                // pointermove -> 跟随鼠标定位
-                card.addEventListener('pointermove', (ev) => {
-                    if (ev.pointerType === 'touch') return;
-                    positionChartTooltipAt(ev.clientX, ev.clientY);
-                }, { passive: true });
-
-                // pointerleave -> 若非通过点击激活则重置
-                card.addEventListener('pointerleave', (ev) => {
-                    if (lifecycleActive === key) {
-                        // 点击激活后，鼠标离开不取消（保持激活）
-                        return;
-                    }
-                    highlightChart();
-                    showChartTooltip();
-                }, { passive: true });
-            });
-        }
-
-        // Reset highlight when clicking outside any lifecycle card
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.lifecycle-step') && !e.target.closest('.glass-card')) {
-                lifecycleActive = null;
-                highlightChart();
-                showChartTooltip();
-            }
-        }, { capture: true });
-
-        function scrollToId(id) {
-            const element = document.getElementById(id);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
-
-        // === 5. Theme Toggle ===
-        function toggleTheme() {
-            const html = document.documentElement;
-            if (html.classList.contains('dark')) {
-                html.classList.remove('dark');
-                html.classList.add('light');
-                localStorage.theme = 'light';
-            } else {
-                html.classList.add('dark');
-                html.classList.remove('light');
-                localStorage.theme = 'dark';
-            }
-            // Update charts color
-            const colors = getColors();
-            Chart.defaults.color = colors.text;
-            Object.values(charts).forEach(c => {
-                if(c.options.scales.r) {
-                    c.options.scales.r.grid.color = colors.grid;
-                    c.options.scales.r.angleLines.color = colors.grid;
-                    c.options.scales.r.pointLabels.color = colors.text;
-                }
-                c.update();
-            });
-        }
-
-        // --- Typewriter Effect Class (from data.html)
-        class Typewriter {
-            constructor(elementId, phrases, waitTime = 2000) {
-                this.element = document.getElementById(elementId);
-                this.phrases = phrases;
-                this.waitTime = waitTime;
-                this.phraseIndex = 0;
-                this.charIndex = 0;
-                this.isDeleting = false;
-                this.type();
-            }
-
-            type() {
-                const currentPhrase = this.phrases[this.phraseIndex];
-
-                if (this.isDeleting) {
-                    this.element.textContent = currentPhrase.substring(0, this.charIndex - 1);
-                    this.charIndex--;
-                } else {
-                    this.element.textContent = currentPhrase.substring(0, this.charIndex + 1);
-                    this.charIndex++;
-                }
-
-                let typeSpeed = 100;
-                if (this.isDeleting) typeSpeed /= 2;
-
-                if (!this.isDeleting && this.charIndex === currentPhrase.length) {
-                    typeSpeed = this.waitTime;
-                    this.isDeleting = true;
-                } else if (this.isDeleting && this.charIndex === 0) {
-                    this.isDeleting = false;
-                    this.phraseIndex = (this.phraseIndex + 1) % this.phrases.length;
-                    typeSpeed = 500;
-                }
-
-                setTimeout(() => this.type(), typeSpeed);
-            }
-        }
-
-        // Init
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.add('light');
-        }
-
-        window.onload = () => {
-            initParticles();
-            initCharts();
-
-            // 初始化示例交互图表
-            initInteractiveChart();
-
-            // 初始化卡片事件处理（鼠标跟随 tooltip）
-            attachLifecycleCardHandlers();
-
-            // Start Typewriter in hero (phrases can be adjusted)
-            const phrases = [
-                "华北水利水电大学",
-                "信息工程学院",
-                "202305825徐艺博",
-                "大数据基础结课作业"
-            ];
-            // Guard: only start if element exists
-            if (document.getElementById('typewriter-text')) {
-                new Typewriter('typewriter-text', phrases, 2000);
-            }
-        };
-
-        // Scroll Spy for Nav
-        window.addEventListener('scroll', () => {
-            const sections = ['hero', 'characteristics', 'lifecycle', 'evolution', 'industries', 'impact'];
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            let current = '';
-            sections.forEach(section => {
-                const element = document.getElementById(section);
-                if (window.scrollY >= (element.offsetTop - 150)) {
-                    current = '#' + section;
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if(link.getAttribute('href') === current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Mobile menu controls
-        function toggleMobileMenu() {
-            const wrapper = document.getElementById('mobile-menu');
-            const panel = document.getElementById('mobile-menu-panel');
-            const btn = document.getElementById('mobile-menu-button');
-            const hamburger = document.getElementById('hamburger-icon');
-            const close = document.getElementById('close-icon');
-
-            if (wrapper.classList.contains('hidden')) {
-                wrapper.classList.remove('hidden');
-                // allow next tick for transition
-                setTimeout(() => panel.classList.remove('translate-x-full'), 20);
-                wrapper.setAttribute('aria-hidden', 'false');
-                btn.setAttribute('aria-expanded', 'true');
-                hamburger.classList.add('hidden');
-                close.classList.remove('hidden');
-                // focus first menu item
-                const first = wrapper.querySelector('[role="menuitem"]');
-                if (first) first.focus();
-            } else {
-                closeMobileMenu();
-            }
-        }
-
-        function closeMobileMenu() {
-            const wrapper = document.getElementById('mobile-menu');
-            const panel = document.getElementById('mobile-menu-panel');
-            const btn = document.getElementById('mobile-menu-button');
-            const hamburger = document.getElementById('hamburger-icon');
-            const close = document.getElementById('close-icon');
-
-            panel.classList.add('translate-x-full');
-            wrapper.setAttribute('aria-hidden', 'true');
-            btn.setAttribute('aria-expanded', 'false');
-            hamburger.classList.remove('hidden');
-            close.classList.add('hidden');
-            // wait for transition then hide wrapper
-            setTimeout(() => wrapper.classList.add('hidden'), 300);
-            // restore focus to toggle
-            if (btn) btn.focus();
-        }
-
-        // Close mobile menu on Escape key
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                const wrapper = document.getElementById('mobile-menu');
-                if (wrapper && !wrapper.classList.contains('hidden')) {
-                    closeMobileMenu();
-                }
-            }
-        });
-
-        // === 示例交互图表逻辑 ===
-        function generateSeries(type) {
-            const labels = [];
-            const data = [];
-            const now = Date.now();
-
-            if (type === 'sales') {
-                for (let i = 11; i >= 0; i--) {
-                    const d = new Date(now - i * 30 * 24 * 3600 * 1000);
-                    labels.push(d.toLocaleString('zh-CN', { month: 'short' }));
-                    data.push(Math.round(200 + Math.random() * 800));
-                }
-            } else if (type === 'users') {
-                for (let i = 11; i >= 0; i--) {
-                    labels.push('W' + (12 - i));
-                    data.push(Math.round(1000 + Math.random() * 5000));
-                }
-            } else {
-                for (let i = 11; i >= 0; i--) {
-                    labels.push((11 - i) + ':00');
-                    data.push(parseFloat((Math.random() * 5).toFixed(2)));
-                }
-            }
-
-            return { labels, data };
-        }
-
-        let interactiveChart = null;
-        function initInteractiveChart() {
-            const ctx = document.getElementById('interactiveChart').getContext('2d');
-            const ds = generateSeries('sales');
-
-            interactiveChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: ds.labels,
-                    datasets: [{
-                        label: '销售额',
-                        data: ds.data,
-                        borderColor: '#0ea5e9',
-                        backgroundColor: 'rgba(14,165,233,0.12)',
-                        fill: true,
-                        tension: 0.3,
-                        pointRadius: 4
-                    }]
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    interaction: { mode: 'nearest', intersect: false },
-                    plugins: {
-                        legend: { display: true },
-                        zoom: {
-                            pan: { enabled: true, mode: 'x' },
-                            zoom: { wheel: { enabled: true }, pinch: { enabled: true }, mode: 'x' }
-                        }
-                    },
-                    scales: {
-                        x: { grid: { display: false } },
-                        y: { beginAtZero: true }
-                    }
-                }
-            });
-
-            // Controls
-            document.getElementById('datasetSelect').addEventListener('change', (e) => {
-                const val = e.target.value;
-                const newSeries = generateSeries(val);
-                interactiveChart.data.labels = newSeries.labels;
-                interactiveChart.data.datasets[0].data = newSeries.data;
-                interactiveChart.data.datasets[0].label = val === 'sales' ? '销售额' : (val === 'users' ? '活跃用户' : '错误率');
-                interactiveChart.update();
-            });
-
-            document.getElementById('randomizeBtn').addEventListener('click', () => {
-                const ds = interactiveChart.data.datasets[0];
-                ds.data = ds.data.map(() => Math.round(Math.random() * (ds.label === '错误率' ? 5 : 5000)));
-                interactiveChart.update();
-            });
-
-            document.getElementById('downloadBtn').addEventListener('click', () => {
-                const link = document.createElement('a');
-                link.href = interactiveChart.toBase64Image('image/png', 1);
-                link.download = 'interactive-chart.png';
-                document.body.appendChild(link);
-                link.click();
-                link.remove();
-            });
-        }
-
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
